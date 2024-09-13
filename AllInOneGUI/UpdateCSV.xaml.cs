@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace AllInOneGUI
 {
     /// <summary>
-    /// Interaction logic for NewRule.xaml
+    /// Interaction logic for UpdateCSV.xaml
     /// </summary>
-    public partial class NewRule : Window
+    public partial class UpdateCSV : Window
     {
-        public NewRule()
+        public UpdateCSV()
         {
             InitializeComponent();
         }

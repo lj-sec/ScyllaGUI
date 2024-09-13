@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace AllInOneGUI
 {
     /// <summary>
-    /// Interaction logic for NewRule.xaml
+    /// Interaction logic for Sysinternals.xaml
     /// </summary>
-    public partial class NewRule : Window
+    public partial class Sysinternals : Window
     {
-        public NewRule()
+        public Sysinternals()
         {
             InitializeComponent();
         }

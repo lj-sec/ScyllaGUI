@@ -1,5 +1,6 @@
 ﻿<Window 
     x:Name="Window"
+    x:Class="AllInOneGUI.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
     Title="Windows Hardening"
@@ -24,40 +25,65 @@
             <Setter Property="Background" Value="Transparent"/>
         </Style>
         <Style TargetType="TabItem">
-            <Setter Property="Background" Value="#FF2D2D30"/>
             <Setter Property="Foreground" Value="#FFF1F1F1"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Border Name ="Border" BorderThickness="1,1,1,0" BorderBrush="#FFF1F1F1" CornerRadius="4,4,0,0" Margin="2,0">
+                            <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" Margin="10,2"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="Red"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="#FF2D2D30"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
     <Grid>
         <TabControl Margin="10">
+            <TabItem Header="First Run" IsSelected="True">
+                <Grid Background="#FF2D2D30">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock FontFamily="Consolas" TextAlignment="Center" Foreground="Purple" Margin="10">
+                            <Run Text="First Run Test"/>
+                        </TextBlock>
+                        <Button x:Name="WindowsHardening" Click="HardeningClicked" ToolTip="This will perform some general registry edits to harden Windows, a full list can be found on GitHub">General Windows Hardening</Button>
+                        <Button x:Name="NetUpdater" ToolTip="This will ensure that your .NET version is up-to-date, and update if not 4.8+">.NET Updater</Button>
+                        <Button x:Name="WmfUpdater" ToolTip="This will ensure that your WMF/Powershell version is up-to-date, and update if not 5.1+">WMF Updater</Button>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
             <TabItem Header="Firewall Tools">
                 <Grid Background="#FF2D2D30">
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontFamily="Consolas" TextAlignment="Center" Foreground="Red" Margin="10">
-            <Run Text=" █████▒  ██▓ ██▀███  ▓█████  █     █░ ▄▄▄       ██▓     ██▓    "/>
-            <LineBreak/>
-            <Run Text="▓██   ▒ ▓██▒▓██ ▒ ██▒▓█   ▀ ▓█░ █ ░█░▒████▄    ▓██▒    ▓██▒    "/>
-            <LineBreak/>
-            <Run Text="▒████ ░ ▒██▒▓██ ░▄█ ▒▒███   ▒█░ █ ░█ ▒██  ▀█▄  ▒██░    ▒██░    "/>
-            <LineBreak/>
-            <Run Text="░▓█▒  ░ ░██░▒██▀▀█▄  ▒▓█  ▄ ░█░ █ ░█ ░██▄▄▄▄██ ▒██░    ▒██░    "/>
-            <LineBreak/>
-            <Run Text="░▒█░    ░██░░██▓ ▒██▒░▒████▒░░██▒██▓  ▓█   ▓██▒░██████▒░██████▒"/>
-            <LineBreak/>
-            <Run Text=" ▒ ░    ░▓  ░ ▒▓ ░▒▓░░░ ▒░ ░░ ▓░▒ ▒   ▒▒   ▓▒█░░ ▒░▓  ░░ ▒░▓  ░"/>
-            <LineBreak/>
-            <Run Text=" ░       ▒ ░  ░▒ ░ ▒░ ░ ░  ░  ▒ ░ ░    ▒   ▒▒ ░░ ░ ▒  ░░ ░ ▒  ░"/>
-            <LineBreak/>
-            <Run Text=" ░ ░     ▒ ░  ░░   ░    ░     ░   ░    ░   ▒     ░ ░     ░ ░   "/>
-            <LineBreak/>
-            <Run Text="         ░     ░        ░  ░    ░          ░  ░    ░  ░    ░  ░"/>
-            <LineBreak/>
+                            <Run Text=" █████▒  ██▓ ██▀███  ▓█████  █     █░ ▄▄▄       ██▓     ██▓    "/>
+                            <LineBreak/>
+                            <Run Text="▓██   ▒ ▓██▒▓██ ▒ ██▒▓█   ▀ ▓█░ █ ░█░▒████▄    ▓██▒    ▓██▒    "/>
+                            <LineBreak/>
+                            <Run Text="▒████ ░ ▒██▒▓██ ░▄█ ▒▒███   ▒█░ █ ░█ ▒██  ▀█▄  ▒██░    ▒██░    "/>
+                            <LineBreak/>
+                            <Run Text="░▓█▒  ░ ░██░▒██▀▀█▄  ▒▓█  ▄ ░█░ █ ░█ ░██▄▄▄▄██ ▒██░    ▒██░    "/>
+                            <LineBreak/>
+                            <Run Text="░▒█░    ░██░░██▓ ▒██▒░▒████▒░░██▒██▓  ▓█   ▓██▒░██████▒░██████▒"/>
+                            <LineBreak/>
+                            <Run Text=" ▒ ░    ░▓  ░ ▒▓ ░▒▓░░░ ▒░ ░░ ▓░▒ ▒   ▒▒   ▓▒█░░ ▒░▓  ░░ ▒░▓  ░"/>
+                            <LineBreak/>
+                            <Run Text=" ░       ▒ ░  ░▒ ░ ▒░ ░ ░  ░  ▒ ░ ░    ▒   ▒▒ ░░ ░ ▒  ░░ ░ ▒  ░"/>
+                            <LineBreak/>
+                            <Run Text=" ░ ░     ▒ ░  ░░   ░    ░     ░   ░    ░   ▒     ░ ░     ░ ░   "/>
+                            <LineBreak/>
+                            <Run Text="         ░     ░        ░  ░    ░          ░  ░    ░  ░    ░  ░"/>
+                            <LineBreak/>
                         </TextBlock>
                         <Button x:Name="FireWallKickstarter">Kickstarter for AD/DNS/DHCP</Button>
-                        <Button x:Name="CreateRule">Create a Rule</Button>
+                        <Button x:Name="CreateRule" Click="NewRuleClicked">Create a Rule</Button>
                         <Button x:Name="ModifyRule">Modify a Rule</Button>
                         <Button x:Name="CodeRed">Code Red</Button>
                     </StackPanel>
@@ -67,20 +93,20 @@
                 <Grid Background="#FF2D2D30">
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontFamily="Consolas" TextAlignment="Center" Foreground="White" Margin="10">
-                <Run Text="      db      `7MM&amp;&quot;Yb.   "/>
-                <LineBreak/>   
-                <Run Text="     ;MM:       MM    `Yb. "/>
-                <LineBreak/>  
-                <Run Text="    ,V^MM.      MM     `Mb "/>
-                <LineBreak/>  
-                <Run Text="   ,M  `MM       MM     MM "/>
-                <LineBreak/>  
-                <Run Text="   AbmmmqMA     MM    ,MP "/>
-                <LineBreak/>  
-                <Run Text="  A'     VML    MM   ,dP' "/>
-                <LineBreak/>  
-                <Run Text=".AMA.   .AMMA..JMMmmmdP'   "/>
-                <LineBreak/>
+                            <Run Text="      db      `7MM&amp;&quot;Yb.   "/>
+                            <LineBreak/>   
+                            <Run Text="     ;MM:       MM    `Yb. "/>
+                            <LineBreak/>  
+                            <Run Text="    ,V^MM.      MM     `Mb "/>
+                            <LineBreak/>  
+                            <Run Text="   ,M  `MM       MM     MM "/>
+                            <LineBreak/>  
+                            <Run Text="   AbmmmqMA     MM    ,MP "/>
+                            <LineBreak/>  
+                            <Run Text="  A'     VML    MM   ,dP' "/>
+                            <LineBreak/>  
+                            <Run Text=".AMA.   .AMMA..JMMmmmdP'   "/>
+                            <LineBreak/>
                         </TextBlock>
                         <Button x:Name="ADKickstarter">Kickstarter</Button>
                         <Button x:Name="ChangeDefaultPassword">Change Default Password for All Users</Button>
@@ -91,16 +117,16 @@
                 <Grid Background="#FF2D2D30">
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontFamily="Consolas" TextAlignment="Center" Foreground="Red" Margin="10">
-                <Run Text="██    ██ ██████  ██████   █████  ████████ ███████ ███████ "/>
-                <LineBreak/>
-                <Run Text="██    ██ ██   ██ ██   ██ ██   ██    ██    ██      ██      "/>
-                <LineBreak/>
-                <Run Text="██    ██ ██████  ██   ██ ███████    ██    █████   ███████ "/>
-                <LineBreak/>
-                <Run Text="██    ██ ██      ██   ██ ██   ██    ██    ██           ██ "/>
-                <LineBreak/>
-                <Run Text=" ██████  ██      ██████  ██   ██    ██    ███████ ███████ "/>
-                <LineBreak/>
+                            <Run Text="██    ██ ██████  ██████   █████  ████████ ███████ ███████ "/>
+                            <LineBreak/>
+                            <Run Text="██    ██ ██   ██ ██   ██ ██   ██    ██    ██      ██      "/>
+                            <LineBreak/>
+                            <Run Text="██    ██ ██████  ██   ██ ███████    ██    █████   ███████ "/>
+                            <LineBreak/>
+                            <Run Text="██    ██ ██      ██   ██ ██   ██    ██    ██           ██ "/>
+                            <LineBreak/>
+                            <Run Text=" ██████  ██      ██████  ██   ██    ██    ███████ ███████ "/>
+                            <LineBreak/>
                         </TextBlock>
                         <Button x:Name="UpdatesKickstarter">Kickstarter</Button>
                         <Button x:Name="BruteForceUpdating">Brute Force Updating</Button>
@@ -111,21 +137,35 @@
                 <Grid Background="#FF2D2D30">
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontFamily="Consolas" TextAlignment="Center" Foreground="White" Margin="10">
-                <Run Text=" ▄▄ • ▄▄▄ . ▐ ▄ .▄▄ · ▄▄▄ . ▄▄· "/>
-                <LineBreak/>
-                <Run Text="▐█ ▀ ▪▀▄.▀·•█▌▐█▐█ ▀. ▀▄.▀·▐█ ▌▪"/>
-                <LineBreak/>
-                <Run Text="▄█ ▀█▄▐▀▀▪▄▐█▐▐▌▄▀▀▀█▄▐▀▀▪▄██ ▄▄"/>
-                <LineBreak/>
-                <Run Text="▐█▄▪▐█▐█▄▄▌██▐█▌▐█▄▪▐█▐█▄▄▌▐███▌"/>
-                <LineBreak/>
-                <Run Text="·▀▀▀▀  ▀▀▀ ▀▀ █▪ ▀▀▀▀  ▀▀▀ ·▀▀▀ "/>
-                <LineBreak/>
+                            <Run Text=" ▄▄ • ▄▄▄ . ▐ ▄ .▄▄ · ▄▄▄ . ▄▄· "/>
+                            <LineBreak/>
+                            <Run Text="▐█ ▀ ▪▀▄.▀·•█▌▐█▐█ ▀. ▀▄.▀·▐█ ▌▪"/>
+                            <LineBreak/>
+                            <Run Text="▄█ ▀█▄▐▀▀▪▄▐█▐▐▌▄▀▀▀█▄▐▀▀▪▄██ ▄▄"/>
+                            <LineBreak/>
+                            <Run Text="▐█▄▪▐█▐█▄▄▌██▐█▌▐█▄▪▐█▐█▄▄▌▐███▌"/>
+                            <LineBreak/>
+                            <Run Text="·▀▀▀▀  ▀▀▀ ▀▀ █▪ ▀▀▀▀  ▀▀▀ ·▀▀▀ "/>
+                            <LineBreak/>
                         </TextBlock>
                         <Button x:Name="RestartServices">Restart Services</Button>
-                        <Button x:Name="Sysinternals">Sysinternals</Button>
+                        <Button x:Name="Sysinternals" Click="SysinternalsClicked">Sysinternals</Button>
                         <Button x:Name="Wireshark">Wireshark</Button>
                         <Button x:Name="Snort">Snort</Button>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Inventory">
+                <Grid Background="#FF2D2D30">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="84*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical" Grid.ColumnSpan="2">
+                        <TextBlock FontFamily="Consolas" TextAlignment="Center" Foreground="Coral" Margin="10">
+                            <Run Text="Inventory"/>
+                        </TextBlock>
+                        <Button x:Name="TakeInventory">Take Inventory</Button>
                     </StackPanel>
                 </Grid>
             </TabItem>
