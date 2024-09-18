@@ -34,10 +34,92 @@
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="Red"/>
+                                <Setter TargetName="Border" Property="Background" Value="Gray"/>
                             </Trigger>
-                            <Trigger Property="IsSelected" Value="False">
-                                <Setter TargetName="Border" Property="Background" Value="#FF2D2D30"/>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="TabItemStyle1" TargetType="{x:Type TabItem}">
+            <Setter Property="Foreground" Value="#FFF1F1F1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Border x:Name="Border" BorderBrush="#FFF1F1F1" BorderThickness="1,1,1,0" CornerRadius="4,4,0,0" Margin="2,0">
+                            <ContentPresenter x:Name="ContentSite" ContentSource="Header" HorizontalAlignment="Center" Margin="10,2" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" TargetName="Border" Value="Magenta"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="TabItemStyle2" TargetType="{x:Type TabItem}">
+            <Setter Property="Foreground" Value="#FFF1F1F1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Border x:Name="Border" BorderBrush="#FFF1F1F1" BorderThickness="1,1,1,0" CornerRadius="4,4,0,0" Margin="2,0">
+                            <ContentPresenter x:Name="ContentSite" ContentSource="Header" HorizontalAlignment="Center" Margin="10,2" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" TargetName="Border" Value="Red"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="TabItemStyle3" TargetType="{x:Type TabItem}">
+            <Setter Property="Foreground" Value="#FFF1F1F1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Border x:Name="Border" BorderBrush="#FFF1F1F1" BorderThickness="1,1,1,0" CornerRadius="4,4,0,0" Margin="2,0">
+                            <ContentPresenter x:Name="ContentSite" ContentSource="Header" HorizontalAlignment="Center" Margin="10,2" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" TargetName="Border" Value="Blue"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="TabItemStyle4" TargetType="{x:Type TabItem}">
+            <Setter Property="Foreground" Value="#FFF1F1F1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Border x:Name="Border" BorderBrush="#FFF1F1F1" BorderThickness="1,1,1,0" CornerRadius="4,4,0,0" Margin="2,0">
+                            <ContentPresenter x:Name="ContentSite" ContentSource="Header" HorizontalAlignment="Center" Margin="10,2" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" TargetName="Border" Value="Green"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="TabItemStyle5" TargetType="{x:Type TabItem}">
+            <Setter Property="Foreground" Value="#FFF1F1F1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Border x:Name="Border" BorderBrush="#FFF1F1F1" BorderThickness="1,1,1,0" CornerRadius="4,4,0,0" Margin="2,0">
+                            <ContentPresenter x:Name="ContentSite" ContentSource="Header" HorizontalAlignment="Center" Margin="10,2" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" TargetName="Border" Value="Coral"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -47,19 +129,33 @@
     </Window.Resources>
     <Grid>
         <TabControl Margin="10">
-            <TabItem Header="First Run" IsSelected="True">
+            <TabItem Style="{DynamicResource TabItemStyle1}" Header="First Run" IsSelected="True">
                 <Grid Background="#FF2D2D30">
                     <StackPanel Orientation="Vertical">
-                        <TextBlock FontFamily="Consolas" TextAlignment="Center" Foreground="Purple" Margin="10">
-                            <Run Text="First Run Test"/>
+                        <TextBlock FontFamily="Consolas" FontSize="11" TextAlignment="Center" Foreground="Magenta" Margin="10">
+                            <Run Text="$$$$$$$$\ $$\                       $$\            /$$$$$$$                     "/>
+                            <LineBreak/>
+                            <Run Text="$$  _____|\__|                      $$ |          | $$__  $$                    "/>
+                            <LineBreak/>
+                            <Run Text="$$ |      $$\  $$$$$$\   $$$$$$$\ $$$$$$\         | $$  \ $$ /$$   /$$ /$$$$$$$ "/>
+                            <LineBreak/>
+                            <Run Text="$$$$$\    $$ |$$  __$$\ $$  _____|\_$$  _|        | $$$$$$$/| $$  | $$| $$__  $$"/>
+                            <LineBreak/>
+                            <Run Text="$$  __|   $$ |$$ |  \__|\$$$$$$\    $$ |          | $$__  $$| $$  | $$| $$  \ $$"/>
+                            <LineBreak/>
+                            <Run Text="$$ |      $$ |$$ |       \____$$\   $$ |$$\       | $$  \ $$| $$  | $$| $$  | $$"/>
+                            <LineBreak/>
+                            <Run Text="$$ |      $$ |$$ |      $$$$$$$  |  \$$$$  |      | $$  | $$|  $$$$$$/| $$  | $$"/>
+                            <LineBreak/>
+                            <Run Text="\__|      \__|\__|      \_______/    \____/       |__/  |__/ \______/ |__/  |__/"/>
                         </TextBlock>
-                        <Button x:Name="WindowsHardening" Click="HardeningClicked" ToolTip="This will perform some general registry edits to harden Windows, a full list can be found on GitHub">General Windows Hardening</Button>
-                        <Button x:Name="NetUpdater" ToolTip="This will ensure that your .NET version is up-to-date, and update if not 4.8+">.NET Updater</Button>
-                        <Button x:Name="WmfUpdater" ToolTip="This will ensure that your WMF/Powershell version is up-to-date, and update if not 5.1+">WMF Updater</Button>
+                        <Button Click="HardeningClicked" ToolTip="This will perform some general registry edits to harden Windows, a full list can be found on GitHub">General Windows Hardening</Button>
+                        <Button Click="NetClicked" ToolTip="This will ensure that your .NET version is up-to-date, and update if not 4.8+">.NET Updater</Button>
+                        <Button Click="WmfClicked" ToolTip="This will ensure that your WMF/Powershell version is up-to-date, and update if not 5.1+">WMF Updater</Button>
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Firewall Tools">
+            <TabItem Style="{DynamicResource TabItemStyle2}" Header="Firewall Tools">
                 <Grid Background="#FF2D2D30">
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontFamily="Consolas" TextAlignment="Center" Foreground="Red" Margin="10">
@@ -82,17 +178,18 @@
                             <Run Text="         ░     ░        ░  ░    ░          ░  ░    ░  ░    ░  ░"/>
                             <LineBreak/>
                         </TextBlock>
-                        <Button x:Name="FireWallKickstarter">Kickstarter for AD/DNS/DHCP</Button>
-                        <Button x:Name="CreateRule" Click="NewRuleClicked">Create a Rule</Button>
-                        <Button x:Name="ModifyRule">Modify a Rule</Button>
-                        <Button x:Name="CodeRed">Code Red</Button>
+                        <Button Click="EnableFirewallClicked">Enable Firewall</Button>
+                        <Button Click="FirewallKickClicked">Kickstarter for AD/DNS/DHCP</Button>
+                        <Button Click="NewRuleClicked">Create a Rule</Button>
+                        <Button Click="DelModRuleClicked">Delete or Modify a Rule</Button>
+                        <Button Click="CodeRedClicked">Code Red</Button>
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Active Directory">
+            <TabItem Style="{DynamicResource TabItemStyle3}" Header="Active Directory">
                 <Grid Background="#FF2D2D30">
                     <StackPanel Orientation="Vertical">
-                        <TextBlock FontFamily="Consolas" TextAlignment="Center" Foreground="White" Margin="10">
+                        <TextBlock FontFamily="Consolas" TextAlignment="Center" Foreground="Blue" Margin="10">
                             <Run Text="      db      `7MM&amp;&quot;Yb.   "/>
                             <LineBreak/>   
                             <Run Text="     ;MM:       MM    `Yb. "/>
@@ -108,15 +205,15 @@
                             <Run Text=".AMA.   .AMMA..JMMmmmdP'   "/>
                             <LineBreak/>
                         </TextBlock>
-                        <Button x:Name="ADKickstarter">Kickstarter</Button>
-                        <Button x:Name="ChangeDefaultPassword">Change Default Password for All Users</Button>
+                        <Button Click="RemoveGroupClicked">Remove Every Group from AD Users</Button>
+                        <Button>Change Default Password for All Users</Button>
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Updates">
+            <TabItem Style="{DynamicResource TabItemStyle4}" Header="Updates">
                 <Grid Background="#FF2D2D30">
                     <StackPanel Orientation="Vertical">
-                        <TextBlock FontFamily="Consolas" TextAlignment="Center" Foreground="Red" Margin="10">
+                        <TextBlock FontFamily="Consolas" TextAlignment="Center" Foreground="Green" Margin="10">
                             <Run Text="██    ██ ██████  ██████   █████  ████████ ███████ ███████ "/>
                             <LineBreak/>
                             <Run Text="██    ██ ██   ██ ██   ██ ██   ██    ██    ██      ██      "/>
@@ -128,8 +225,9 @@
                             <Run Text=" ██████  ██      ██████  ██   ██    ██    ███████ ███████ "/>
                             <LineBreak/>
                         </TextBlock>
-                        <Button x:Name="UpdatesKickstarter">Kickstarter</Button>
-                        <Button x:Name="BruteForceUpdating">Brute Force Updating</Button>
+                        <Button Click="AutoUpdateClicked">Turn On Automatic Download of Updates</Button>
+                        <Button Click="AttemptFixClicked">Attempt to Fix Windows Updater</Button>
+                        <Button Click="UpdateCSVClicked">Brute Force Updating via .csv</Button>
                     </StackPanel>
                 </Grid>
             </TabItem>
@@ -148,14 +246,14 @@
                             <Run Text="·▀▀▀▀  ▀▀▀ ▀▀ █▪ ▀▀▀▀  ▀▀▀ ·▀▀▀ "/>
                             <LineBreak/>
                         </TextBlock>
-                        <Button x:Name="RestartServices">Restart Services</Button>
-                        <Button x:Name="Sysinternals" Click="SysinternalsClicked">Sysinternals</Button>
-                        <Button x:Name="Wireshark">Wireshark</Button>
-                        <Button x:Name="Snort">Snort</Button>
+                        <Button Click="RestartServicesClicked">Restart Services</Button>
+                        <Button Click="SysinternalsClicked">Sysinternals</Button>
+                        <Button Click="WiresharkClicked">Wireshark</Button>
+                        <Button Click="SnortClicked">Snort</Button>
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Inventory">
+            <TabItem Style="{DynamicResource TabItemStyle5}" Header="Inventory">
                 <Grid Background="#FF2D2D30">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="5*"/>
@@ -163,9 +261,19 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Vertical" Grid.ColumnSpan="2">
                         <TextBlock FontFamily="Consolas" TextAlignment="Center" Foreground="Coral" Margin="10">
-                            <Run Text="Inventory"/>
+                            <Run Text="    ____                      __                  "/>
+                            <LineBreak/>
+                            <Run Text="   /  _/___ _   _____  ____  / /_____  _______  __"/>
+                            <LineBreak/>
+                            <Run Text="   / // __ \ | / / _ \/ __ \/ __/ __ \/ ___/ / / /"/>
+                            <LineBreak/>
+                            <Run Text=" _/ // / / / |/ /  __/ / / / /_/ /_/ / /  / /_/ / "/>
+                            <LineBreak/>
+                            <Run Text="/___/_/ /_/|___/\___/_/ /_/\__/\____/_/   \__, /  "/>
+                            <LineBreak/>
+                            <Run Text="                                         /____/   "/>
                         </TextBlock>
-                        <Button x:Name="TakeInventory">Take Inventory</Button>
+                        <Button Click="InventoryClicked">Take Inventory</Button>
                     </StackPanel>
                 </Grid>
             </TabItem>

@@ -54,6 +54,8 @@ namespace AllInOneGUI
             }
         }
 
+        // FIRST RUN FUNCTIONS
+
         private void HardeningClicked(object sender, RoutedEventArgs e)
         {
             MessageBoxResult confirmHardening = MessageBox.Show("Continue with General Windows Hardening? The following changes will be applied: https://github.com/c-u-r-s-e/AllInOneGUI/README.md", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
@@ -63,11 +65,76 @@ namespace AllInOneGUI
             }
         }
 
+        private void NetClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void WmfClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+        
+        // FIREWALL FUCNTIONS
+
+        private void EnableFirewallClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FirewallKickClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void NewRuleClicked(object sender, RoutedEventArgs e)
         {
             NewRule newRule = new NewRule();
             newRule.Show();
         }
+
+        private void DelModRuleClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CodeRedClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        // ACTIVE DIRECTORY FUNCTIONS
+
+        private void RemoveGroupClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DefaultPassClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // UPDATES FUNCTIONS
+
+        private void AutoUpdateClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AttemptFixClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UpdateCSVClicked(object sender, RoutedEventArgs e)
+        {
+            UpdateCSV updateCSV = new UpdateCSV();
+            updateCSV.Show();
+        }
+
+        // GEN SEC FUNCTIONS
 
         private void RestartServicesClicked(object sender, RoutedEventArgs e)
         {
@@ -106,7 +173,19 @@ namespace AllInOneGUI
             }
         }
 
-        private void UpdateCSVClicked(object sender, RoutedEventArgs e)
+        private void WiresharkClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SnortClicked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // INVENTORY FUNCTION
+
+        private void InventoryClicked(object sender, RoutedEventArgs e)
         {
 
         }
