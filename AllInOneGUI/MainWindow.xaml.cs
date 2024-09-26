@@ -16,6 +16,9 @@ using System.Net;
 using System.IO;
 using System.IO.Compression;
 using Microsoft.Win32;
+using System.ComponentModel.Design;
+using System.DirectoryServices;
+using System.DirectoryServices.AccountManagement;
 
 namespace AllInOneGUI
 {
@@ -59,10 +62,13 @@ namespace AllInOneGUI
         private void HardeningClicked(object sender, RoutedEventArgs e)
         {
             MessageBoxResult confirmHardening = MessageBox.Show("Continue with General Windows Hardening? The following changes will be applied: https://github.com/c-u-r-s-e/AllInOneGUI/README.md", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (confirmHardening == MessageBoxResult.Yes)
+            if (confirmHardening == MessageBoxResult.No)
             {
-                ModifyRegistryKey(@"HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server", @"fDenyTSConnections",1);
+                return;
             }
+            
+            ModifyRegistryKey(@"HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server", @"fDenyTSConnections", 1);
+
         }
 
         private void NetClicked(object sender, RoutedEventArgs e)
