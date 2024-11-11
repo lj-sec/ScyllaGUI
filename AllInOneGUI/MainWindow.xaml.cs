@@ -1,24 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using System.Net;
 using System.IO;
 using System.IO.Compression;
-using Microsoft.Win32;
-using System.ComponentModel.Design;
-using System.DirectoryServices;
-using System.DirectoryServices.AccountManagement;
+using System.Management.Automation;
+using System.Reflection;
 
 namespace AllInOneGUI
 {
@@ -33,30 +18,6 @@ namespace AllInOneGUI
             InitializeComponent();
         }
 
-        private static void ModifyRegistryKey(string registryPath, string valueName, int valueData)
-        {
-            try
-            {
-                // Open the registry key with write access
-                using (RegistryKey key = Registry.LocalMachine.OpenSubKey(registryPath, writable: true))
-                {
-                    if (key == null)
-                    {
-                        Console.WriteLine($"Registry key '{registryPath}' not found.");
-                        return;
-                    }
-
-                    // Set the registry value
-                    key.SetValue(valueName, valueData, RegistryValueKind.DWord);
-                    Console.WriteLine($"Successfully set '{valueName}' to {valueData} in '{registryPath}'.");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"An error occurred while modifying the registry: {ex.Message}");
-            }
-        }
-
         // FIRST RUN FUNCTIONS
 
         private void HardeningClicked(object sender, RoutedEventArgs e)
@@ -66,9 +27,13 @@ namespace AllInOneGUI
             {
                 return;
             }
-            
-            ModifyRegistryKey(@"HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server", @"fDenyTSConnections", 1);
-
+            var app = Application.Current as App;
+            using (PowerShell powerShellInstance = PowerShell.Create())
+            {
+                powerShellInstance.AddScript(File.ReadAllText(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "GeneralHardening.ps1")));
+                powerShellInstance.AddParameter($"logFile", $"{app.LogFile}");
+                powerShellInstance.Invoke();
+            }
         }
 
         private void NetClicked(object sender, RoutedEventArgs e)
